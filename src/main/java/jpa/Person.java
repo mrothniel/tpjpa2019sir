@@ -1,23 +1,17 @@
 package jpa;
 
-import java.util.Collection;
-
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Inheritance;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
+@Inheritance
 public class Person {
 
-	private long email;
-	private String nom;
-	private String prenom;
-	private String web;
-	private Reunion reunion;
-	@OneToMany
-	private Collection<Preference> preferences;
-
+	protected long email;
+	protected String nom;
+	protected String prenom;
+	protected String web;
 	@Id
 	public long getEmail() {
 		return email;
@@ -51,13 +45,5 @@ public class Person {
 		this.web = web;
 	}
 
-	@ManyToOne
-	public Reunion getReunion() {
-		return reunion;
-	}
-
-	public void setReunion(Reunion reunion) {
-		this.reunion = reunion;
-	}
 
 }

@@ -7,30 +7,35 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Preference {
-	private Long id;
+public class Participer {
 	
-
+	private long id ;
 	private Participant participant;
-
-
+	private Dated dated;
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	public long getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-
+	
 	@ManyToOne
 	public Participant getParticipant() {
 		return participant;
 	}
-
 	public void setParticipant(Participant participant) {
 		this.participant = participant;
 	}
+	@ManyToOne
+	public Dated getDate() {
+		return dated;
+	}
+	public void setDate(Dated dated) {
+		this.dated = dated;
+	}
+	
 
 }

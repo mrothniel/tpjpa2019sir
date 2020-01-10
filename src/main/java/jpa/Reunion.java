@@ -1,16 +1,15 @@
 package jpa;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Reunion {
 	private String intitule;
 	private String resume;
-	private Collection<Person> persons ;	
+	private Dated dated ;
+	
 	@Id
 	public String getIntitule() {
 		return intitule;
@@ -24,13 +23,17 @@ public class Reunion {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-	@OneToMany(mappedBy = "reunion")
-	public Collection<Person> getPersons() {
-		return persons;
+	
+	@OneToOne
+	public Dated getDate() {
+		return dated;
 	}
-	public void setPersons(Collection<Person> persons) {
-		this.persons = persons;
+	public void setDate(Dated dated) {
+		this.dated = dated;
 	}
+	
+	
+	
 	
 	
 	

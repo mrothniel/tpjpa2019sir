@@ -1,8 +1,0 @@
-package jpa;
-
-import javax.persistence.Entity;
-
-@Entity
-public class Date {
-	
-}

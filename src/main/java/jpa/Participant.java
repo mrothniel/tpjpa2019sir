@@ -1,17 +1,34 @@
 package jpa;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
-@Entity
-public class Participant {
+@Entity 
+public class Participant extends Person {
 	
-	private Mail mail;
+	
+	private Collection<Preference> preferences;
+	private Collection<Participer> participer;
+	
 
-	public Mail getMail() {
-		return mail;
+	
+	
+	@OneToMany(mappedBy = "participant")
+	public Collection<Preference> getPreferences() {
+		return preferences;
+	}
+	public void setPreferences(Collection<Preference> preferences) {
+		this.preferences = preferences;
 	}
 
-	public void setMail(Mail mail) {
-		this.mail = mail;
+	@OneToMany(mappedBy = "participant")
+	public Collection<Participer> getParticiper() {
+		return participer;
+	}
+
+	public void setParticiper(Collection<Participer> participer) {
+		this.participer = participer;
 	}
 }
